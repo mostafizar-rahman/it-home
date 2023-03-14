@@ -1,0 +1,10 @@
+
+.categories-area .item{
+    width: 100% !important;
+}
+.categories-area .react-multi-carousel-track{
+    gap: 8px;
+}
+.categories-area .react-multi-carousel-list{
+    margin-left: 20px;
+}

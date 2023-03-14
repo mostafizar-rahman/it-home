@@ -1,0 +1,6 @@
+.recommended-articles-area .item {
+  width: 100% !important;
+}
+.recommended-articles-area .react-multi-carousel-track {
+  gap: 20px;
+}
