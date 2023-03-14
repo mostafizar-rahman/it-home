@@ -6,6 +6,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "./RecommendedArticles.css"
 const RecommendedArticles = ({per_page_show}) => {
+
   const {
     isLoading,
     error,
@@ -15,7 +16,7 @@ const RecommendedArticles = ({per_page_show}) => {
     queryKey: ["posts", "per_page", per_page_show],
     queryFn: () =>
       axios
-        .get(`https://sajjadhsagor.com/wp-json/wp/v2/posts?per_page=${per_page_show}`)
+        .get(`${process.env.REACT_APP_MAIN_URL}/wp-json/wp/v2/posts?per_page=${per_page_show}`)
         .then((res) => res?.data),
   });
   if (isLoading) {
@@ -25,7 +26,7 @@ const RecommendedArticles = ({per_page_show}) => {
     desktop: {
       breakpoint: { max: 3000, min: 0 },
       items: 2,
-      slidesToSlide: 1, // optional, default to 1.
+      slidesToSlide: 1,
     },
   };
   return (
@@ -36,7 +37,7 @@ const RecommendedArticles = ({per_page_show}) => {
           <RecommendedArticle key={recaArticle.id} recaArticle={recaArticle} />
         ))}
       </Carousel>
-      <hr />
+      <hr className="mr-5"/>
     </div>
   );
 };

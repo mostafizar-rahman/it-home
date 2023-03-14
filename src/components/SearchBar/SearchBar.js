@@ -1,24 +1,22 @@
-import axios from "axios";
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const SearchBar = () => {
   const navigate = useNavigate();
   const [search, setSearchResult] = useState("");
+
   const handleSearchInput = (e) => {
-    // axios
-    //   .get(
-    //     `https://sajjadhsagor.com/wp-json/wp/v2/posts?search=${e.target.value}`
-    //   )
-    //   .then((res) => );
     setSearchResult(e.target.value);
   };
+
+  // Enter button Hendlaer for search
   const handleSearchInputEnter = (e) => {
     if (e.key === "Enter") {
       navigate(`/searchResult/${search}`);
+      setSearchResult('')
     }
   };
-  console.log(search);
 
   return (
     <div>
@@ -26,6 +24,7 @@ const SearchBar = () => {
         <input
           onChange={handleSearchInput}
           onKeyUp={handleSearchInputEnter}
+          value={search}
           type="text"
           placeholder="Search..."
           className="w-[335px] h-10 rounded-2xl bg-[#F4F4F4] px-3 outline-none"

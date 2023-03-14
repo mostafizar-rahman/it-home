@@ -6,16 +6,10 @@ import RecommendedArticles from "../components/RecommendedArticles/RecommendedAr
 import SearchBar from "../components/SearchBar/SearchBar";
 
 const Root = () => {
-    const [categorieId, setCategorieId] = useState('')
-
   return (
     <div>
-      <div>
-        <SearchBar />
-        <RecommendedArticles per_page_show={10} />
-        <Categories setCategorieId={setCategorieId} />
-        <Articles per_page_show={2} categorieId={categorieId} />
-      </div>
+      <SearchBar />
+
       <Outlet />
     </div>
   );

@@ -10,6 +10,13 @@ const Categories = ({ setCategorieId }) => {
   if (isLoading) {
     return <h1>Loding</h1>;
   }
+  const handleCategorieId = (cateId) => {
+    setCategorieId(cateId);
+  };
+  const handleCategorieAll = () => {
+    console.log('click')
+    setCategorieId('all')
+  };
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 0 },
@@ -18,17 +25,22 @@ const Categories = ({ setCategorieId }) => {
     },
   };
   return (
-    <div className="categories-area">
+    <div className="categories-area mt-6">
       <Carousel responsive={responsive} itemClass="item" arrows={false}>
-        <button className="btn rounded-md px-2 py-[6px] border border-[#BDBDBD] text-[#828282]">
+        <button
+          onClick={handleCategorieAll}
+          className="btn rounded-md px-2 py-[6px] border border-[#BDBDBD] text-[#828282]"
+        >
           All
         </button>
         {categories.map((categorie) => (
-          <Categorie
+          <button
             key={categorie.id}
-            categorie={categorie}
-            setCategorieId={setCategorieId}
-          />
+            onClick={() => handleCategorieId(categorie.id)}
+            className="btn rounded-md px-2 py-[6px] border border-[#BDBDBD] text-[#828282]"
+          >
+            {categorie.name}
+          </button>
         ))}
       </Carousel>
     </div>

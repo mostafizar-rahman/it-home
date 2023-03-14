@@ -12,7 +12,7 @@ const CategorieApiCall = () => {
     queryKey: ["categories"],
     queryFn: () =>
       axios
-        .get("https://sajjadhsagor.com/wp-json/wp/v2/categories")
+        .get(`${process.env.REACT_APP_MAIN_URL}/wp-json/wp/v2/categories`)
         .then((res) => res?.data),
   });
 
@@ -31,10 +31,11 @@ const ArticleApiCall = ({per_page_show}) => {
     queryFn: () =>
       axios
         .get(
-          `https://sajjadhsagor.com/wp-json/wp/v2/posts?per_page=${per_page_show}`
+          `${process.env.REACT_APP_MAIN_URL}/wp-json/wp/v2/posts?per_page=${per_page_show}`
         )
         .then((res) => res?.data),
   });
   return { isLoading, articles };
 };
+
 export { CategorieApiCall, ArticleApiCall };
