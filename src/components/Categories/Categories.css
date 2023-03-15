@@ -1,4 +1,8 @@
 
+.categories-area{
+    height: 35px;
+}
+
 .categories-area .item{
     width: 100% !important;
 }

@@ -1,17 +1,16 @@
 import axios from "axios";
 import { useQuery } from "react-query";
 
+
 // Categorie Api Call
 const CategorieApiCall = () => {
   const {
     isLoading,
-    error,
     data: categories,
-    isFetching,
   } = useQuery({
     queryKey: ["categories"],
-    queryFn: () =>
-      axios
+    queryFn: async () =>
+      await axios
         .get(`${process.env.REACT_APP_MAIN_URL}/wp-json/wp/v2/categories`)
         .then((res) => res?.data),
   });
@@ -19,23 +18,5 @@ const CategorieApiCall = () => {
   return { isLoading, categories };
 };
 
-// Post data api call
-const ArticleApiCall = ({per_page_show}) => {
-  const {
-    isLoading,
-    error,
-    data: articles,
-    isFetching,
-  } = useQuery({
-    queryKey: ["posts", "per_page", per_page_show],
-    queryFn: () =>
-      axios
-        .get(
-          `${process.env.REACT_APP_MAIN_URL}/wp-json/wp/v2/posts?per_page=${per_page_show}`
-        )
-        .then((res) => res?.data),
-  });
-  return { isLoading, articles };
-};
 
-export { CategorieApiCall, ArticleApiCall };
+export { CategorieApiCall };

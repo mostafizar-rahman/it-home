@@ -6,6 +6,7 @@ import { CategorieApiCall } from "../Api/ApiCall";
 
 const Article = ({ article }) => {
   const { id, images, date, views, title, categories: articleCateId } = article;
+  console.log(articleCateId)
   const { small } = images.photos[0].src;
   const publishDate = useDate(date);
   const { categories } = CategorieApiCall();

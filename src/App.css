@@ -8,3 +8,7 @@
     0px 4.5288px 4.75524px rgba(0, 0, 0, 0.0243888),
     0px 1.99324px 2.0929px rgba(0, 0, 0, 0.0167767);
 }
+
+.top-shadow {
+  box-shadow: 0px -2px 8px rgba(0, 0, 0, 0.1);
+}

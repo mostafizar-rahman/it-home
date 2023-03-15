@@ -9,18 +9,16 @@ const RecommendedArticles = ({per_page_show}) => {
 
   const {
     isLoading,
-    error,
     data: recaArticles,
-    isFetching,
   } = useQuery({
     queryKey: ["posts", "per_page", per_page_show],
-    queryFn: () =>
-      axios
+    queryFn: async () =>
+      await axios
         .get(`${process.env.REACT_APP_MAIN_URL}/wp-json/wp/v2/posts?per_page=${per_page_show}`)
         .then((res) => res?.data),
   });
   if (isLoading) {
-    return <h1>Loding</h1>;
+    return 
   }
   const responsive = {
     desktop: {
@@ -30,14 +28,14 @@ const RecommendedArticles = ({per_page_show}) => {
     },
   };
   return (
-    <div className="mt-6 ml-5 recommended-articles-area">
-      <h1 className="font-bold text-[24px] text-[#2C2C2C]">Recommended</h1>
+    <div className="mt-5 ml-5 recommended-articles-area">
+      <h1 className="font-bold text-[24px] text-[#2C2C2C] mb-3">Recommended</h1>
       <Carousel responsive={responsive} itemClass="item" arrows={false}>
         {recaArticles.map((recaArticle) => (
           <RecommendedArticle key={recaArticle.id} recaArticle={recaArticle} />
         ))}
       </Carousel>
-      <hr className="mr-5"/>
+      <hr className="mr-5 mt-6"/>
     </div>
   );
 };

@@ -1,16 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import { Outlet } from "react-router-dom";
-import Articles from "../components/Articles/Articles";
-import Categories from "../components/Categories/Categories";
-import RecommendedArticles from "../components/RecommendedArticles/RecommendedArticles";
 import SearchBar from "../components/SearchBar/SearchBar";
+import PhoneBottomIcon from "../components/Shared/PhoneBottomIcon/PhoneBottomIcon";
+import PhoneTopIcon from "../components/Shared/PhoneTopIcon/PhoneTopIcon";
 
 const Root = () => {
   return (
     <div>
-      <SearchBar />
-
+      <div>
+        <PhoneTopIcon />
+        <SearchBar />
+      </div>
       <Outlet />
+      <PhoneBottomIcon/>
     </div>
   );
 };
