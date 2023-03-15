@@ -18,7 +18,7 @@ const SearchResult = () => {
         }
 
         return (
-          <div className="w-[335px] h-[79px] mx-auto mt-6 mb-4 flex">
+          <div className="w-[335px] h-[79px] mx-auto mt-6 mb-4 flex ">
             <div>
               <img
                 src={small}

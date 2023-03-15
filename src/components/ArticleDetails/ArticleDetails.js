@@ -34,7 +34,7 @@ const ArticleDetails = () => {
     return;
   }
   return (
-    <article className="w-[335px] mx-auto h-[700px] mt-6 overflow-y-scroll ">
+    <article className="w-[335px] mx-auto h-[600px] mt-6 overflow-y-scroll ">
       <div>
         <img src={small} alt="" className="w-[335px] h-[204px] rounded-2xl" />
       </div>
